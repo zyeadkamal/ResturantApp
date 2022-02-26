@@ -11,6 +11,7 @@ import XCTest
 
 class AbdoEl7atyTests: XCTestCase {
 
+    let menuCrt: MenuControllerProtocol = MenuController.shared
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -22,7 +23,7 @@ class AbdoEl7atyTests: XCTestCase {
    func testCategoriesAPI() throws {
        let exception = expectation(description: "Time out")
 
-       MenuController.shared.fetchCategories { (result) in
+       menuCrt.fetchCategories { (result) in
            switch result{
            case .success(let categories):
                XCTAssertNotNil(categories)
@@ -37,7 +38,7 @@ class AbdoEl7atyTests: XCTestCase {
    func testMenuItemsAPI() throws {
        let exception = expectation(description: "Time out")
 
-       MenuController.shared.fetchMenuItems(forCategory: "salads") { (result) in
+       menuCrt.fetchMenuItems(forCategory: "salads") { (result) in
            switch result{
            case .success(let menus):
                XCTAssertNotNil(menus)
@@ -54,7 +55,7 @@ class AbdoEl7atyTests: XCTestCase {
    func testSubmitAPI() throws {
        let exception = expectation(description: "Time out")
        
-       MenuController.shared.submitOrder(forMenuIDs: [1,2]){ (result) in
+       menuCrt.submitOrder(forMenuIDs: [1,2]){ (result) in
            switch result{
            case .success(let time):
                XCTAssertNotNil(time)
