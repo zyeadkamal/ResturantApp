@@ -21,11 +21,17 @@ protocol MenuControllerProtocol {
     func addItem(itemID:MenuItem)
     
     func getItems()->[MenuItem]
+
+    func removeItems(index:Int)
+    
+    func getOrderUpdateNotification() -> NSNotification.Name
+    
 }
 
 
 class MenuController: MenuControllerProtocol{
     
+
     static let orderUpdatedNotification =
        Notification.Name("MenuController.orderUpdated")
     static var orderItemsIds:Order = Order(){
@@ -122,6 +128,14 @@ class MenuController: MenuControllerProtocol{
     }
     func getItems()->[MenuItem]{
         return  MenuController.orderItemsIds.items
+    }
+
+    func removeItems(index:Int) {
+        MenuController.orderItemsIds.items.remove(at: index)
+    }
+    
+    func getOrderUpdateNotification()-> NSNotification.Name{
+        return MenuController.orderUpdatedNotification
     }
 
 }

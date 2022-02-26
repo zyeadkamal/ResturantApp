@@ -17,20 +17,22 @@ class OrderTableViewController: UITableViewController , OrderTableViewController
     private var presenter:OrderPresenterProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = OrderPresenter(view: self)
-        NotificationCenter.default.addObserver(tableView!,
-               selector: #selector(UITableView.reloadData),
-               name: MenuController.orderUpdatedNotification, object: nil)
+        
+            presenter = OrderPresenter(view: self)
+            
+            NotificationCenter.default.addObserver(tableView!,
+            selector: #selector(UITableView.reloadData),
+            name: MenuController.orderUpdatedNotification, object: nil)
+    
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-//tableView.reloadData()
-    }
+
     
     // MARK: - Table view data source
     
+
+
+  
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -58,7 +60,7 @@ class OrderTableViewController: UITableViewController , OrderTableViewController
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            MenuController.orderItemsIds.items.remove(at: indexPath.row)
+            presenter?.removeItem(index: indexPath.row)
         }
     }
     @IBAction func submitButtonTapped(_ sender: UIBarButtonItem) {

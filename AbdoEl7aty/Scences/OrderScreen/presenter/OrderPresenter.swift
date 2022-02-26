@@ -14,6 +14,8 @@ protocol OrderPresenterProtocol {
     func submitOrder()
     func getOrders()->[MenuItem]
     func getOrdersCount()->Int
+
+    func removeItem(index:Int)
 }
 
 class OrderPresenter: OrderPresenterProtocol{
@@ -25,6 +27,7 @@ class OrderPresenter: OrderPresenterProtocol{
     init(view: OrderTableViewControllerProtocol, menuControllerProtocol: MenuControllerProtocol = MenuController.shared){
         self.view = view
         self.menuControllerProtocol = menuControllerProtocol
+
     }
     
     func submitOrder() {
@@ -50,8 +53,11 @@ class OrderPresenter: OrderPresenterProtocol{
     func getOrdersCount() -> Int {
         return menuControllerProtocol.getItems().count
     }
-    
-    
+
+    func removeItem(index:Int){
+        menuControllerProtocol.removeItems(index: index)
+
+    }
 }
     
 
