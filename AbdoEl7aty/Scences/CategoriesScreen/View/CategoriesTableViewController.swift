@@ -38,14 +38,14 @@ class CategoriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         
-        cell.textLabel?.text = presenter?.getCategoriesAtIndexPath(at: indexPath)
+        cell.textLabel?.text = presenter?.getCategoriesAtIndexPath(at: indexPath.row)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let destVC = self.storyboard?.instantiateViewController(withIdentifier: "MenuItemsTableViewController") as! MenuItemsTableViewController
-        let presenter = MenuItemPresenter(categoryName: self.presenter?.getCategoriesAtIndexPath(at: indexPath) ?? "",view: destVC)
+        let presenter = MenuItemPresenter(categoryName: self.presenter?.getCategoriesAtIndexPath(at: indexPath.row) ?? "",view: destVC)
         destVC.setPresenter(presenter: presenter)
         self.navigationController?.pushViewController(destVC, animated: true)
     }

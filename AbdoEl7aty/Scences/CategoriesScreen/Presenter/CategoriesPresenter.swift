@@ -12,14 +12,14 @@ protocol CategoriesPresenterToCategoriesController : AnyObject {
     
     func getResult() -> [String]?
     func getResultCount() -> Int
-    func getCategoriesAtIndexPath(at: IndexPath) -> String
+    func getCategoriesAtIndexPath(at: Int) -> String
 }
 
 class CategoriesPresenter: CategoriesPresenterToCategoriesController{
     
-    private var result : [String]?
-    private weak var view : CategoriesControllerToPresenter?
-    private var menuController : MenuControllerProtocol
+     var result : [String]? = []
+     weak var view : CategoriesControllerToPresenter?
+     var menuController : MenuControllerProtocol
     
     init(view: CategoriesControllerToPresenter,
          menuController: MenuControllerProtocol = MenuController.shared) {
@@ -54,8 +54,8 @@ class CategoriesPresenter: CategoriesPresenterToCategoriesController{
         return self.result?.count ?? 0
     }
     
-    func getCategoriesAtIndexPath(at: IndexPath) -> String{
-        return self.result?[at.row] ?? ""
+    func getCategoriesAtIndexPath(at: Int) -> String{
+        return self.result?[at] ?? ""
     }
     
 }
