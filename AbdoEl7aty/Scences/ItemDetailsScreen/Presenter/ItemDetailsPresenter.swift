@@ -16,11 +16,11 @@ protocol ItemDetailsPresenterController {
 
 class ItemDetailsPresenter: ItemDetailsPresenterController{
     
-    private var item : MenuItem
+    var item : MenuItem = MenuItem(id: 1, name: "Spaghetti and Meatballs", detailText: "Seasoned meatballs on top of freshly-made spaghetti. Served with a robust tomato sauce.", price: 9.0, category: "entrees", imageURL: nil)
     
-    private weak var view: ItemDetailsViewControllerProtocols?
+    weak var view: ItemDetailsViewControllerProtocols?
     
-    private let menuControllerProtocol:MenuControllerProtocol
+    let menuControllerProtocol:MenuControllerProtocol
     
     init(item: MenuItem, view: ItemDetailsViewControllerProtocols, menuControllerProtocol: MenuControllerProtocol = MenuController.shared) {
         self.item = item
