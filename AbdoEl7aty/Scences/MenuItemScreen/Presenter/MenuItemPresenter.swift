@@ -16,10 +16,10 @@ protocol MenuItemsPreseterProtocols {
 class MenuItemPresenter: MenuItemsPreseterProtocols{
     
     
-    private var categoryName: String
-    private var menuItems : [MenuItem]?
-    private var menuController : MenuControllerProtocol
-    private weak var view : MenuItemsControllerProtocols?
+     var categoryName: String
+     var menuItems : [MenuItem]?
+     var menuController : MenuControllerProtocol
+     weak var view : MenuItemsControllerProtocols?
     
     init(categoryName: String,view : MenuItemsControllerProtocols,menuController: MenuControllerProtocol = MenuController.shared) {
         self.categoryName = categoryName

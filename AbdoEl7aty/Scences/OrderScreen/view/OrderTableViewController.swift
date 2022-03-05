@@ -12,9 +12,11 @@ protocol OrderTableViewControllerProtocol : AnyObject{
     func showAlert(preperation: Int)
     
 }
+
 class OrderTableViewController: UITableViewController , OrderTableViewControllerProtocol{
     
     lazy var presenter:OrderPresenterProtocol? = OrderPresenter(view: self)
+    var alert: UIAlertController?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,10 +71,10 @@ class OrderTableViewController: UITableViewController , OrderTableViewController
     }
     
     func showAlert(preperation: Int) {
-        let alert = UIAlertController(title: "Preperation Time", message: "Your order will be ready within \(preperation) minutes", preferredStyle: .alert)
+        alert = UIAlertController(title: "Preperation Time", message: "Your order will be ready within \(preperation) minutes", preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
+        alert?.addAction(action)
+        self.present(alert!, animated: true, completion: nil)
     }
        
 }

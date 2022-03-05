@@ -47,7 +47,8 @@ class OrderTableViewControllerTest: XCTestCase {
     }
     
     func testSut_startsWithEmptyTableView() {
-        XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 0)
+        sut.presenter = presenter
+        XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 1)
     }
 
     func testSut_whenGetCategoriesAndReloadTableIsCalled_tableViewIsFilled() {
@@ -64,19 +65,24 @@ class OrderTableViewControllerTest: XCTestCase {
         // To register the cell with the table view
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         sut = storyboard.instantiateViewController(withIdentifier: "OrderTableViewController") as? OrderTableViewController
-        
+        sut.loadViewIfNeeded()
         sut.presenter = presenter
         sut.tableView.reloadData()
 
         
         // When
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? orderTableViewCell
         
         // Then
-        XCTAssertEqual(cell.textLabel?.text, "a")
+        XCTAssertEqual(cell?.itemNameLabel.text ?? "", "a")
     }
     
-
+    func testSut_whenShowAletrIsCakked() {
+           
+        sut.showAlert(preperation: 21)
+        XCTAssertNotNil(sut.alert)
+    }
+    
     
 }
 

@@ -22,6 +22,24 @@ class MenuControllerTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         sut = nil
     }
+    
+    func testSut_fetchCategory() {
+        sut?.fetchCategories(completion: { ( result: Result<CategoriesResponse, Error>) in
+            XCTAssertNotNil(result)
+        })
+    }
+    
+    func testSut_fetchMenuItems() {
+        sut?.fetchMenuItems(forCategory: "entrees", completion: { (result) in
+            XCTAssertNotNil(result)
+        })
+    }
+    
+    func testSut_submitOrder() {
+        sut?.submitOrder(forMenuIDs: [1], completion: { (result) in
+            XCTAssertNotNil(result)
+        })
+    }
 
     func testSut_WhenAddItemIsCalled() {
         // This is an example of a functional test case.

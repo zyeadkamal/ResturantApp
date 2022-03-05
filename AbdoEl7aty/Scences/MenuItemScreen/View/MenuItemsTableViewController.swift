@@ -16,13 +16,8 @@ protocol MenuItemsControllerProtocols :AnyObject{
 class MenuItemsTableViewController: UITableViewController {
 
     
-    private var presenter : MenuItemsPreseterProtocols?
+    var presenter : MenuItemsPreseterProtocols?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

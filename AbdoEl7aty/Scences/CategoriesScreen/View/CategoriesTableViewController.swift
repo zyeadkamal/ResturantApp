@@ -15,14 +15,8 @@ protocol CategoriesControllerToPresenter : AnyObject {
 class CategoriesTableViewController: UITableViewController {
 
     
-    var presenter : CategoriesPresenterToCategoriesController?
+    lazy var presenter : CategoriesPresenterToCategoriesController? = CategoriesPresenter(view: self)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        presenter = CategoriesPresenter(view: self)
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

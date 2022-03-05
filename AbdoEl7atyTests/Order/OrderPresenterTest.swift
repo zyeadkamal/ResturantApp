@@ -48,7 +48,7 @@ class OrderPresenterTest: XCTestCase {
         
         let count = sut.getOrdersCount()
         
-        XCTAssertEqual(count, 0)
+        XCTAssertEqual(count, 2)
         
         
     }
@@ -56,20 +56,19 @@ class OrderPresenterTest: XCTestCase {
     func testSut_whenRemovingFromList_CountShouldBeLessThanPreviousWithOne(){
         //when
         normalCasesMockNetworkMaanager.addItem(itemID:MenuItem(id: 1, name: "a", detailText: "a", price: 1.1, category:"a", imageURL: nil))
-        var count = sut.getOrdersCount()
-        XCTAssertEqual(count, 1)
-        
+        XCTAssertNotEqual(sut.getOrdersCount(), 0)
+        let count = sut.getOrdersCount()
+
         //Test
         sut.removeItem(index: 0)
-        count = sut.getOrdersCount()
-        XCTAssertEqual(count, 0)
+        XCTAssertEqual(sut.getOrdersCount(), count-1)
     }
     
     func testSut_whenLoadResultCalledWithFailure_resultStillEmpty() {
         
         sut = OrderPresenter(view: orderView, menuControllerProtocol: MocNetworkManager(fileName: "Error"))
                 
-        XCTAssertEqual(sut.getOrders(), [])
+        XCTAssertEqual(sut.response?.preparationTime , nil)
         
         
     }
