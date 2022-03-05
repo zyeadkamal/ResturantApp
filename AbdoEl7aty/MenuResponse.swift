@@ -14,7 +14,11 @@ struct MenuResponse: Codable {
 }
 
 // MARK: - Item
+<<<<<<< HEAD
 struct MenuItem: Codable, Equatable {
+=======
+struct MenuItem: Codable,Equatable{
+>>>>>>> 2511c18605fab381ab0510a5bce0f622ff3f4a27
     var id: Int
     var name: String
     var detailText: String

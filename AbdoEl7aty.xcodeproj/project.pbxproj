@@ -40,6 +40,10 @@
 		04EBF4E727C8F0FD00A2F75B /* OrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF4E627C8F0FD00A2F75B /* OrderPresenter.swift */; };
 		04EBF4EA27C8F11A00A2F75B /* MenuItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF4E927C8F11A00A2F75B /* MenuItemPresenter.swift */; };
 		04EBF4EE27C8F15200A2F75B /* ItemDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF4ED27C8F15200A2F75B /* ItemDetailsPresenter.swift */; };
+		1550AB2E27D340BA0064B60C /* MenuItemsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1550AB2D27D340BA0064B60C /* MenuItemsPresenterTest.swift */; };
+		1550AB3027D350020064B60C /* MenuItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 1550AB2F27D350020064B60C /* MenuItems.json */; };
+		1550AB3527D356DE0064B60C /* MockMenuItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1550AB3427D356DE0064B60C /* MockMenuItemsView.swift */; };
+		1550AB3727D3EF4A0064B60C /* MenuItemsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1550AB3627D3EF4A0064B60C /* MenuItemsViewControllerTest.swift */; };
 		2B8FB1BC27D366B500D67991 /* OrderPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FB1BB27D366B500D67991 /* OrderPresenterTest.swift */; };
 		2B8FB1BE27D368C700D67991 /* OrderResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B8FB1BD27D368C700D67991 /* OrderResponse.json */; };
 		2B8FB1C027D36BF800D67991 /* MockOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FB1BF27D36BF800D67991 /* MockOrderModel.swift */; };
@@ -94,6 +98,10 @@
 		04EBF4E627C8F0FD00A2F75B /* OrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPresenter.swift; sourceTree = "<group>"; };
 		04EBF4E927C8F11A00A2F75B /* MenuItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemPresenter.swift; sourceTree = "<group>"; };
 		04EBF4ED27C8F15200A2F75B /* ItemDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsPresenter.swift; sourceTree = "<group>"; };
+		1550AB2D27D340BA0064B60C /* MenuItemsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemsPresenterTest.swift; sourceTree = "<group>"; };
+		1550AB2F27D350020064B60C /* MenuItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MenuItems.json; sourceTree = "<group>"; };
+		1550AB3427D356DE0064B60C /* MockMenuItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMenuItemsView.swift; sourceTree = "<group>"; };
+		1550AB3627D3EF4A0064B60C /* MenuItemsViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemsViewControllerTest.swift; sourceTree = "<group>"; };
 		2B8FB1BB27D366B500D67991 /* OrderPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPresenterTest.swift; sourceTree = "<group>"; };
 		2B8FB1BD27D368C700D67991 /* OrderResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OrderResponse.json; sourceTree = "<group>"; };
 		2B8FB1BF27D36BF800D67991 /* MockOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOrderModel.swift; sourceTree = "<group>"; };
@@ -151,6 +159,8 @@
 		04A7956627D241F7002D30AD /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				1550AB3627D3EF4A0064B60C /* MenuItemsViewControllerTest.swift */,
+				1550AB2D27D340BA0064B60C /* MenuItemsPresenterTest.swift */,
 				04A7956727D24221002D30AD /* CategoryPresenterTest.swift */,
 				04A7956927D24240002D30AD /* CategoryViewControllerTest.swift */,
 			);
@@ -160,6 +170,7 @@
 		04A7956B27D24A9C002D30AD /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				1550AB3127D3537A0064B60C /* MenuItems */,
 				04A7957027D25AC6002D30AD /* Category */,
 				04A7956E27D25AAA002D30AD /* Network */,
 				04A7956F27D25AB4002D30AD /* JSON */,
@@ -181,6 +192,7 @@
 				04D34B0B27D40B5D004B9FD2 /* MenuItems.json */,
 				04A7957A27D26352002D30AD /* Categories.json */,
 				04A7957C27D26612002D30AD /* Error.json */,
+				1550AB2F27D350020064B60C /* MenuItems.json */,
 				2B8FB1BD27D368C700D67991 /* OrderResponse.json */,
 				2B8FB1BF27D36BF800D67991 /* MockOrderModel.swift */,
 			);
@@ -372,6 +384,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		1550AB3127D3537A0064B60C /* MenuItems */ = {
+			isa = PBXGroup;
+			children = (
+				1550AB3427D356DE0064B60C /* MockMenuItemsView.swift */,
+			);
+			path = MenuItems;
 		2B8FB1BA27D3664A00D67991 /* Order */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +480,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1550AB3027D350020064B60C /* MenuItems.json in Resources */,
 				04A7957D27D26612002D30AD /* Error.json in Resources */,
 				04D34B0C27D40B5D004B9FD2 /* MenuItems.json in Resources */,
 				04A7957B27D26352002D30AD /* Categories.json in Resources */,
@@ -491,11 +510,14 @@
 				04D42E9727D3DD1300AB961B /* MocItemDetails.swift in Sources */,
 				04D34B0A27D40B4A004B9FD2 /* MenuItemsPresenterTest.swift in Sources */,
 				04A7956A27D24240002D30AD /* CategoryViewControllerTest.swift in Sources */,
+				1550AB2E27D340BA0064B60C /* MenuItemsPresenterTest.swift in Sources */,
+				04A7956D27D24B0A002D30AD /* MocNetworkManager.swift in Sources */,
+				1550AB3727D3EF4A0064B60C /* MenuItemsViewControllerTest.swift in Sources */,
+				1550AB3527D356DE0064B60C /* MockMenuItemsView.swift in Sources */,
 				2B8FB1C027D36BF800D67991 /* MockOrderModel.swift in Sources */,
 				0480D84527D3E64600AA7E1A /* MenuControllerTest.swift in Sources */,
 				04D42E9327D3D3CC00AB961B /* ItemDeatailsPresenterTest.swift in Sources */,
 				049E5A5B27D3B5C1001EADD0 /* MocCategoryPresenter.swift in Sources */,
-				04A7956D27D24B0A002D30AD /* MocNetworkManager.swift in Sources */,
 				2B8FB1C227D3DFD500D67991 /* OrderTableViewControllerTest.swift in Sources */,
 				04D34B0827D40B40004B9FD2 /* MenuItemsViewControllerTest.swift in Sources */,
 				2B8FB1BC27D366B500D67991 /* OrderPresenterTest.swift in Sources */,
