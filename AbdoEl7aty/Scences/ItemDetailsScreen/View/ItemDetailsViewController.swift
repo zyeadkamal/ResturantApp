@@ -22,14 +22,14 @@ class ItemDetailsViewController: UIViewController, ItemDetailsViewControllerProt
     @IBOutlet weak var itemPriceLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
     
-    private var presenter: ItemDetailsPresenterController?
+    var presenter: ItemDetailsPresenterController?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        itemNameLabel.text = presenter?.getItem().name
+        itemNameLabel.text = presenter?.getItem().name ?? ""
         itemPriceLabel.text = "$\(presenter?.getItem().price.description ?? "")"
     }
     

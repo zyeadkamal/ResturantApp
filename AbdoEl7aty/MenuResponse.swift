@@ -20,7 +20,7 @@ struct MenuItem: Codable {
     var detailText: String
     var price: Double
     var category: String
-    var imageURL: URL
+    var imageURL: URL?
     
     enum CodingKeys: String, CodingKey {
         case id
