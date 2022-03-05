@@ -499,7 +499,6 @@
 				0480D84527D3E64600AA7E1A /* MenuControllerTest.swift in Sources */,
 				04D42E9327D3D3CC00AB961B /* ItemDeatailsPresenterTest.swift in Sources */,
 				049E5A5B27D3B5C1001EADD0 /* MocCategoryPresenter.swift in Sources */,
-				04A7956D27D24B0A002D30AD /* MocNetworkManager.swift in Sources */,
 				2B8FB1C227D3DFD500D67991 /* OrderTableViewControllerTest.swift in Sources */,
 				2B8FB1BC27D366B500D67991 /* OrderPresenterTest.swift in Sources */,
 			);
