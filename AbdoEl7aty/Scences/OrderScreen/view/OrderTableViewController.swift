@@ -14,11 +14,10 @@ protocol OrderTableViewControllerProtocol : AnyObject{
 }
 class OrderTableViewController: UITableViewController , OrderTableViewControllerProtocol{
     
-    private var presenter:OrderPresenterProtocol?
+    lazy var presenter:OrderPresenterProtocol? = OrderPresenter(view: self)
     override func viewDidLoad() {
         super.viewDidLoad()
         
-            presenter = OrderPresenter(view: self)
             
             NotificationCenter.default.addObserver(tableView!,
             selector: #selector(UITableView.reloadData),
@@ -52,6 +51,8 @@ class OrderTableViewController: UITableViewController , OrderTableViewController
     }
     
     func configureCell(_ cell: orderTableViewCell, indexPath: IndexPath) {
+        print(indexPath.row)
+        print(presenter?.getOrdersCount())
         let orderName = presenter?.getOrders()[indexPath.row].name ?? ""
         let orderPrice = presenter?.getOrders()[indexPath.row].price.description ?? ""
         cell.itemNameLabel.text = orderName

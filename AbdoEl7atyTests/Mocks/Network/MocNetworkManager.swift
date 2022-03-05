@@ -14,7 +14,7 @@ class MocNetworkManager: MenuControllerProtocol{
     var baseURL = ""
     var fileName: String?
     static let orderUpdatedNotification = Notification.Name("MenuController.orderUpdated")
-    static var orderItemsIds:Order = Order(){
+    static var orderItemsIds:MockOrderModel = MockOrderModel(){
         didSet {
             NotificationCenter.default.post(name:
                 MenuController.orderUpdatedNotification, object: nil)
@@ -58,7 +58,18 @@ class MocNetworkManager: MenuControllerProtocol{
     }
     
     func submitOrder(forMenuIDs menuIDs: [Int], completion: @escaping (Result<OrderResponse, Error>) -> Void) {
+        guard let data = data(in: fileName) else {
+            assertionFailure("unable to find the file with name \(fileName ?? "")")
+            return
+        }
         
+        do {
+            let response = try JSONDecoder().decode(OrderResponse.self, from: data)
+            completion(.success(response))
+        } catch let error {
+            completion(.failure(OrderAppError.decodingError))
+            print(error.localizedDescription)
+        }
     }
     
     func addItem(itemID:MenuItem){

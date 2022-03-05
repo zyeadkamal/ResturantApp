@@ -55,7 +55,7 @@ class CategoriesPresenter: CategoriesPresenterToCategoriesController{
     }
     
     func getCategoriesAtIndexPath(at: Int) -> String{
-        return self.result?[at] ?? ""
+        return result?[at] ?? ""
     }
     
 }
