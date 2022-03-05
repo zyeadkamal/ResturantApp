@@ -20,12 +20,12 @@ protocol OrderPresenterProtocol {
 
 class OrderPresenter: OrderPresenterProtocol{
     
-    private weak var view: OrderTableViewControllerProtocol?
-   
+    weak var mView: OrderTableViewControllerProtocol?
+    var response:OrderResponse? = nil
     var menuControllerProtocol: MenuControllerProtocol
     
     init(view: OrderTableViewControllerProtocol, menuControllerProtocol: MenuControllerProtocol = MenuController.shared){
-        self.view = view
+        self.mView = view
         self.menuControllerProtocol = menuControllerProtocol
 
     }
@@ -34,8 +34,9 @@ class OrderPresenter: OrderPresenterProtocol{
         menuControllerProtocol.submitOrder(forMenuIDs: menuControllerProtocol.getItems().map{$0.id}) { [weak self] (result: Result<OrderResponse, Error>) in
             switch result {
             case .success(let response):
+                self?.response = response
                 DispatchQueue.main.async {
-                    self?.view?.showAlert(preperation: response.preparationTime)
+                    self?.mView?.showAlert(preperation: response.preparationTime)
                 }
                 break
             case .failure(let error):
