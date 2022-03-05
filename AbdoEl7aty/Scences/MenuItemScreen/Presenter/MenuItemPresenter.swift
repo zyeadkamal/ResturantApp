@@ -17,9 +17,9 @@ class MenuItemPresenter: MenuItemsPreseterProtocols{
     
     
     private var categoryName: String
-    private var menuItems : [MenuItem]?
+    var menuItems : [MenuItem]?
     private var menuController : MenuControllerProtocol
-    private weak var view : MenuItemsControllerProtocols?
+    weak var view : MenuItemsControllerProtocols?
     
     init(categoryName: String,view : MenuItemsControllerProtocols,menuController: MenuControllerProtocol = MenuController.shared) {
         self.categoryName = categoryName

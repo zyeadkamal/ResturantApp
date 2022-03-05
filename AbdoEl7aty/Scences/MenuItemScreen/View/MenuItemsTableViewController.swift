@@ -16,7 +16,7 @@ protocol MenuItemsControllerProtocols :AnyObject{
 class MenuItemsTableViewController: UITableViewController {
 
     
-    private var presenter : MenuItemsPreseterProtocols?
+    var presenter : MenuItemsPreseterProtocols?
     
     override func viewDidLoad() {
         super.viewDidLoad()
